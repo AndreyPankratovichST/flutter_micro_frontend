@@ -1,35 +1,41 @@
-name: my_app
+name: app
 description: A large-scale Flutter application
 publish_to: 'none'
 
 version: 1.0.0
 environment:
   sdk: ^3.9.2
+workspace:
+  - packages/core
+  - packages/platform/di
+  - packages/platform/logger
+  - packages/platform/router
+  - packages/platform/storage
+  - packages/features/products
+  - packages/features/basket
 
 dependencies:
   flutter:
     sdk: flutter
-  go_router: ^14.0.0  # Для навигации
-  flutter_bloc: ^8.1.0  # Для MultiBlocProvider в app.dart
-  flutter_dotenv: ^5.1.0  # Для загрузки .env в main.dart
-  get_it: ^7.6.0  # Для глобального DI
-  injectable: ^2.4.0  # Для code generation DI
 
-  # Локальные пакеты
   core:
     path: packages/core
-  shared:
-    path: packages/shared
-  config:
-    path: packages/config
-  auth:
-    path: packages/start
+  di:
+    path: packages/platform/di
+  logger:
+    path: packages/platform/logger
+  router:
+    path: packages/platform/router
+  storage:
+    path: packages/platform/storage
+  products:
+    path: packages/features/products
+  basket:
+    path: packages/features/basket
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  build_runner: ^2.4.0
-  injectable_generator: ^2.4.0
+dev_dependencies: 
+  mockito: ^5.4.6
+  build_runner: ^2.10.5
 
 flutter:
   uses-material-design: true

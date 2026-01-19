@@ -1,0 +1,14 @@
+name: storage
+description: "A new Flutter package project."
+version: 0.0.1
+
+environment:
+  sdk: ^3.9.2
+
+resolution: workspace
+
+dependencies:
+  core: 
+    path: ../../core
+  
+  shared_preferences: ^2.5.4

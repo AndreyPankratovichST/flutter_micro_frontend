@@ -1,0 +1,15 @@
+name: logger
+description: "A new Flutter package project."
+version: 0.0.1
+
+environment:
+  sdk: ^3.9.2
+
+resolution: workspace
+
+dependencies:
+  core: 
+    path: ../../core
+  
+  talker: ^5.1.12
+  talker_logger: ^5.1.12

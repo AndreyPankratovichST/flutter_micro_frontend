@@ -1,0 +1,16 @@
+name: router
+description: "A new Flutter package project."
+version: 0.0.1
+
+environment:
+  sdk: ^3.9.2
+
+resolution: workspace
+
+dependencies:
+  core: 
+    path: ../../core
+  flutter:
+    sdk: flutter
+  
+  go_router: ^17.0.1
