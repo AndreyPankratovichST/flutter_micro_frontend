@@ -7,6 +7,6 @@ final class StorageModule implements DiModule {
   Future<void> build(Di di) async {
     final prefs = await SharedPreferences.getInstance();
 
-    di.registerLazySingleton(() => SharedAppStorage(prefs));
+    di.registerLazySingleton<AppStorage>(() => SharedAppStorage(prefs));
   }
 }

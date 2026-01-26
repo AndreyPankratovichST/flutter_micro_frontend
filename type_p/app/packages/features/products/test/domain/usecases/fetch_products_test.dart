@@ -4,7 +4,7 @@ import 'package:mockito/annotations.dart';
 import 'package:products/src/domain/entities/product.dart';
 import 'package:products/src/domain/repositories/products_repository.dart';
 import 'package:products/src/domain/usecases/fetch_products_usecase.dart';
-// import 'fetch_products_test.mocks.dart';
+import 'fetch_products_test.mocks.dart';
 
 @GenerateMocks([ProductsRepository])
 void main() {
@@ -16,25 +16,26 @@ void main() {
     useCase = FetchProductsUseCase(repository);
   });
 
-  final tempProducts = [Product()];
+  final tempProducts = [
+    Product(id: '1', title: 'title', description: 'description', price: 0.0),
+  ];
 
-  group('fetch products', () {
-    test('test get products items', () async {
+  group('fetch products from usecase', () {
+    test('test get products', () async {
       when(repository.fetchProducts()).thenAnswer((_) async => tempProducts);
 
       final result = await useCase(null);
 
       expect(result, tempProducts);
+
       verify(repository.fetchProducts());
       verifyNoMoreInteractions(repository);
     });
 
-    test('should return server error', () async {
+    test('should return error', () async {
       when(repository.fetchProducts()).thenThrow(Exception());
 
-      final result = await useCase(null);
-
-      expect(result.runtimeType, equals(Exception().runtimeType));
+      expect(() => useCase(null), throwsA(isA<Exception>()));
     });
   });
 }

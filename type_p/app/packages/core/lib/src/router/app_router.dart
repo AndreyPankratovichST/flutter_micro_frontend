@@ -1,9 +1,9 @@
-import 'package:core/src/router/app_routes_module.dart';
+import 'package:core/src/router/app_router_module.dart';
 
 abstract class AppRouter<T> {
   T get router;
 
-  void registerModule(AppRoutesModule module);
+  void registerModule(AppRouterModule module);
 
   Future<R?> push<R>(String path);
 

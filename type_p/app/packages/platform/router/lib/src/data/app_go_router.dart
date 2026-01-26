@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:router/src/utils/app_route_extension.dart';
 
 final class AppGoRouter implements AppRouter {
-  late GoRouter? _router;
+  GoRouter? _router;
   final List<RouteBase> _routes = [];
 
   @override
@@ -17,11 +17,7 @@ final class AppGoRouter implements AppRouter {
   }
 
   @override
-  void registerModule(AppRoutesModule module) {
-    if (_router != null) {
-      throw Exception('Router already initialization');
-    }
-
+  void registerModule(AppRouterModule module) {
     _routes.addAll(module.routes.map((e) => e.toGoRoute));
   }
 

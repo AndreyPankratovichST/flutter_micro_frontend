@@ -1,3 +1,5 @@
+import 'package:core/src/usecase/result.dart';
+
 abstract class UseCase<R, P> {
-  Future<R> call(P params);
+  Future<Result<R>> call([P? params]);
 }

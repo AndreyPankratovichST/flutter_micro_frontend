@@ -8,6 +8,7 @@ environment:
 workspace:
   - packages/core
   - packages/platform/di
+  - packages/platform/client
   - packages/platform/logger
   - packages/platform/router
   - packages/platform/storage
@@ -22,6 +23,8 @@ dependencies:
     path: packages/core
   di:
     path: packages/platform/di
+  client:
+    path: packages/platform/client
   logger:
     path: packages/platform/logger
   router:
@@ -34,6 +37,8 @@ dependencies:
     path: packages/features/basket
 
 dev_dependencies: 
+  flutter_test:
+    sdk: flutter
   mockito: ^5.4.6
   build_runner: ^2.10.5
 
