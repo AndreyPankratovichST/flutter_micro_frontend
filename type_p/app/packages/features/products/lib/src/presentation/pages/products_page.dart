@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:products/src/presentation/blocs/products/products_bloc.dart';
 import 'package:products/src/presentation/widgets/basket_button.dart';
-import 'package:products/src/presentation/widgets/error_view.dart';
-import 'package:products/src/presentation/widgets/loading_view.dart';
 import 'package:products/src/presentation/widgets/products_list_view.dart';
+import 'package:widgets/widgets.dart';
 
 const titleText = 'Products';
 const spacing = 8.0;
@@ -37,10 +36,10 @@ final class ProductsPage extends StatelessWidget {
             builder: (_, state) {
               return switch (state) {
                 ProductsLoadingState() => const LoadingView(),
+                ProductsErrorState() => ErrorView(error: state.error),
                 ProductsLoadedState() => ProductsListView(
                   products: state.products,
                 ),
-                ProductsErrorState() => ErrorView(error: state.error),
               };
             },
           ),

@@ -1,3 +1,4 @@
+import 'package:basket/di/module.dart';
 import 'package:client/client.dart';
 import 'package:di/di.dart';
 import 'package:logger/logger.dart';
@@ -16,4 +17,5 @@ Future<void> configurationApp() async {
 
   /// Features module
   await ProductsModule().build(di);
+  await BasketModule().build(di);
 }

@@ -869,6 +869,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
+  widgets:
+    dependency: transitive
+    description:
+      path: "packages/shared/widgets"
+      relative: true
+    source: path
+    version: "0.0.1"
   xdg_directories:
     dependency: transitive
     description:

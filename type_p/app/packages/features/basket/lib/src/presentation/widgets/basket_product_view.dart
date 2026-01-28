@@ -1,7 +1,7 @@
+import 'package:basket/src/domain/entities/product.dart';
+import 'package:basket/src/presentation/blocs/basket/basket_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:products/src/domain/entities/product.dart';
-import 'package:products/src/presentation/blocs/products/products_bloc.dart';
 import 'package:widgets/widgets.dart';
 
 const spacing = 8.0;
@@ -9,12 +9,12 @@ const flexImage = 2;
 const flexPrice = 1;
 
 const fractionDigits = 2;
-const buyText = 'Buy';
+const removeText = 'Delete';
 
-final class ProductView extends StatelessWidget {
+final class BasketProductView extends StatelessWidget {
   final Product product;
 
-  const ProductView({super.key, required this.product});
+  const BasketProductView({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -45,17 +45,16 @@ final class ProductView extends StatelessWidget {
                       style: theme.textTheme.headlineLarge,
                     ),
                     OutlinedButton(
-                      onPressed: () => context.read<ProductsBloc>().add(
-                        ProductToBasketEvent(product),
+                      onPressed: () => context.read<BasketBloc>().add(
+                        DeleteFromBasketEvent(product),
                       ),
-                      child: Text(buyText),
+                      child: Text(removeText),
                     ),
                   ],
                 ),
               ),
             ],
           ),
-          Text(product.description, style: theme.textTheme.bodySmall),
         ],
       ),
     );
